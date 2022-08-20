@@ -1,0 +1,1 @@
+[Optimizing a Ring Buffer for Throughput | Erik Rigtorp](https://rigtorp.se/ringbuffer/)

@@ -11,6 +11,7 @@
 
 [Caffeine基础源码解析_Ftsom的博客-CSDN博客_caffeine源码分析](https://blog.csdn.net/l_dongyang/article/details/123294062)
 
+[Caffeine cache 学习01_郭传志的技术博客_51CTO博客](https://blog.51cto.com/u_6478076/5204120)
 ## 思路
 ![](Pasted%20image%2020220820094737.png)
 如图所示，所有的数据都被存放到绿色的部分，也就是ConcurrentHashMap
@@ -103,7 +104,7 @@ void drainReadBuffer() {
 #### 读操作
 - afterRead, 访问对应节点时，会将所访问的节点放入ReadBuffer(允许丢失)
 
-```
+```java
 void afterRead(Node<K, V> node, long now, boolean recordHit) {  
   if (recordHit) {  
     statsCounter().recordHits(1);  
@@ -138,15 +139,17 @@ void scheduleDrainBuffers() {
   if (evictionLock.tryLock()) {   //尝试上锁
     try {  
       int drainStatus = drainStatus();  
-      //能异步就不要同步
+      //是否已经有任务在执行
       if (drainStatus >= PROCESSING_TO_IDLE) {  
         return;  
       }  
-      // 实在不行就同步
+      
       lazySetDrainStatus(PROCESSING_TO_IDLE);  
+      // 执行任务
       executor().execute(drainBuffersTask);  
     } catch (Throwable t) {  
       logger.log(Level.WARNING, "Exception thrown when submitting maintenance task", t);  
+      // 同步操作
       maintenance(/* ignored */ null);  
     } finally {  
       evictionLock.unlock();  
