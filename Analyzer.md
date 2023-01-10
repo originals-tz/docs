@@ -1,10 +1,8 @@
 [Elasticsearch中什么是 tokenizer、analyzer、filter ? - 腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1706529)
 
 Analyzer = Tokenizer + Filter
-
+![[2.png]]
 对于数据的数据，先使用Tokenizer分词，再使用Filter过滤数据
-
-![[Pasted image 20220822190257.png]]
 
 ### 分析器(Analyzer)
 无法修改现有分析器

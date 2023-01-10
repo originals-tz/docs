@@ -13,7 +13,7 @@
 
 [Caffeine cache 学习01_郭传志的技术博客_51CTO博客](https://blog.51cto.com/u_6478076/5204120)
 ## 思路
-![](Pasted%20image%2020220820094737.png)
+![[1.png]]
 如图所示，所有的数据都被存放到绿色的部分，也就是ConcurrentHashMap
 这个ConcurrentHashMap中的数据在逻辑上被分为三块(基于W-TinyLFU算法)，由下面三个不同的队列(LRU)进行管理
 
