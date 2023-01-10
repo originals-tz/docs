@@ -1,3 +1,6 @@
+~~neovim + Lunravim + vscode = C++ IDE~~
+一切烦恼来自于硬件太差
+
 ## Clion 远程开发之痛
 当下，Jetbrain IDE大行其道，自己配置一套开发工具链已经成为一件投产比很低的事情
 几年前，为了享受服务器的资源，我毅然而然的掏钱购入了Jetbrian全家桶
