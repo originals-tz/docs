@@ -14,3 +14,33 @@
 top
 `perf top -p/t`
 
+## 内存记录
+
+[Procpath — Procpath documentation](https://procpath.readthedocs.io/en/latest/index.html)
+
+记录
+
+procpath record -i 1 -d [名字].sqlite '$..children[?(@.stat.pid == [进程pid])]'
+
+可视化
+
+[Analysing records — Procpath documentation](https://procpath.readthedocs.io/en/latest/analysis.html)
+
+## 显示GBK
+
+cat FC220628.001 | iconv -f GBK -t UTF-8
+
+## ebpf
+
+cat /boot/config-`uname -r` | grep CONFIG_DEBUG_INFO_BTF
+
+[内存泄漏（增长）火焰图 | HeapDump性能社区](https://heapdump.cn/article/1661654?from=pc)
+
+## GDB pretty-printer
+
+```
+查看当前的
+(gdb) : info pretty-printer
+```
+
+c++默认自带格式化脚本,位置 : `/usr/share/gcc-*/python/libstdcxx/`
