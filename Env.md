@@ -1,0 +1,11 @@
+## pyclang无法正确解析STL对象
+
+安装pyclang后无法正确解析STL对象，可能是链接的clang库出现问题
+
+使用pip list查看安装了那些与clang有关的包
+
+卸载pip安装的libclang，pip中的libclang自带了一个clang的so，后续安装的包可能link到上面去了
+
+使用系统包管理安装libclang
+
+然后使用pip重新安装clang和pyclang
