@@ -1,29 +1,32 @@
-[深入浅出 eBPF | 专注于 Linux 内核技术eBPF (Linux/Kernel/XDP/BCC/BPFTrace/Cilium)](https://www.ebpf.top/)
+bpftrace踩坑
 
-- bpftrace追踪内存分配
-http://mysqlentomologist.blogspot.com/2021/05/dynamic-tracing-of-memory-allocations.html
+1.包管理安装的bpftrace可能并不是完全体
 
-查看so符号 nm -D lib.so
+例如缺少libdw支持，无法解析DWARF(DWARF是ELF最常用的调试信息格式)
 
-objdump -tT a.out
+没有调试信息就无法在bpftrace中获取函数的返回值之类的数据
 
-```
-sudo bpftrace -e 'uprobe:libtcmalloc:tc_new /comm == "a.out"/ { printf("All│
-ocated %d bytes\n", arg0); }'
-```
+因此可以使用`bpftrace info`查看构建信息，如果缺少支持，在进行源码安装
 
-libtcmalloc : tc_new tc_delete
+2.调试信息的安装
 
-ubuntu debuginfo安装
+对于ubuntu，参考
+
 https://wiki.ubuntu.com/Debug%20Symbol%20Packages
 
-bpftrace BEGIN无法执行
-https://zhuanlan.zhihu.com/p/576186351
+调试信息的包格式为 `libxxx-dbgsym` 使用apt安装
 
-bpftrace libdw support 
-bpftrace info 查看构建信息，如果没有需要手动编译
+需要注意的是, bpftrace也有自己的调试信息，需要安装 `bpftrace-dbgsym`
+
+3.获取二进制中的符号
+
+使用`nm -D lib.so` 或者 `objdump -tT a.out`
+
+4.程序结束后无法解析对应的符号
 
 如果使用了ustack，应在程序退出前结束bpftrace，程序退出后无法根据地址解析出具体的栈，只能打印出地址
+
+5.牛刀小试
 
 ```
 #!/usr/bin/env bpftrace
