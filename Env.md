@@ -28,3 +28,15 @@ Host *
     ControlPersist yes
     ControlPath ~/.ssh/socks/%r@%h:%p
 ```
+
+## Clion GDB remote Error during pretty printers setup
+
+首先查看clion日志 Help/Show Log In Explorer
+
+```
+2023-01-28 14:23:25,824 [ 260107]   WARN - #c.j.c.e.debugger - [UNEXPECTED] >python import sys; sys.dont_write_bytecode = True; sys.path.insert(0, "/tmp/1697b084-1d48-4dd1-9197-638fd5a7e500/.clion.resources/pretty_printers/gdb"); from default.printers import register_default_printers; register_default_printers(None); from libstdcxx.v6.printers import register_libstdcxx_printers; register_libstdcxx_printers(None); from default.libstdcxx_printers import patch_libstdcxx_printers_module; patch_libstdcxx_printers_module(); 
+
+```
+可以看到引用了`sys.path.insert(0, "/tmp/1697b084-1d48-4dd1-9197-638fd5a7e500/.clion.resources/pretty_printers/gdb")`
+
+将其删除
