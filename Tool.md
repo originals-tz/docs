@@ -44,3 +44,9 @@ cat /boot/config-`uname -r` | grep CONFIG_DEBUG_INFO_BTF
 ```
 
 c++默认自带格式化脚本,位置 : `/usr/share/gcc-*/python/libstdcxx/`
+
+### nc文件传输
+
+接收端 nc -l 12312
+
+发送端 nc -l 12312 > target.tgz
