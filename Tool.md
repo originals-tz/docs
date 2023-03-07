@@ -47,6 +47,12 @@ c++默认自带格式化脚本,位置 : `/usr/share/gcc-*/python/libstdcxx/`
 
 ### nc文件传输
 
-接收端 nc -l 12312
+发送端 nc -l 12312 > target.tar.gz
 
-发送端 nc -l 12312 > target.tgz
+接收端 nc ip 12312 < target.tar.gz
+
+## 查看csv
+
+```
+column -s, -t < somefile.csv | less -#2 -N -S
+```
