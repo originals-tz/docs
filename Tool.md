@@ -56,3 +56,7 @@ c++默认自带格式化脚本,位置 : `/usr/share/gcc-*/python/libstdcxx/`
 ```
 column -s, -t < somefile.csv | less -#2 -N -S
 ```
+
+查看进程
+pgrep themesrv | xargs -I % pwdx %
+ps -C themesrv -o cmd,rss
