@@ -1,6 +1,13 @@
 ## GDB
 
 带参数运行 `run 参数`
+
+查看的pretty printer
+```
+(gdb) : info pretty-printer
+```
+
+c++默认自带格式化脚本,位置 : `/usr/share/gcc-*/python/libstdcxx/`
 ## perf 
 
 [系统级性能分析工具perf的介绍与使用_ITPUB博客](http://blog.itpub.net/24585765/viewspace-2564885/)
@@ -38,15 +45,6 @@ cat FC220628.001 | iconv -f GBK -t UTF-8
 cat /boot/config-`uname -r` | grep CONFIG_DEBUG_INFO_BTF
 
 [内存泄漏（增长）火焰图 | HeapDump性能社区](https://heapdump.cn/article/1661654?from=pc)
-
-## GDB pretty-printer
-
-```
-查看当前的
-(gdb) : info pretty-printer
-```
-
-c++默认自带格式化脚本,位置 : `/usr/share/gcc-*/python/libstdcxx/`
 
 ## nc文件传输
 
