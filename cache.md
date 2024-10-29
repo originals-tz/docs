@@ -12,6 +12,10 @@
 [Caffeine基础源码解析_Ftsom的博客-CSDN博客_caffeine源码分析](https://blog.csdn.net/l_dongyang/article/details/123294062)
 
 [Caffeine cache 学习01_郭传志的技术博客_51CTO博客](https://blog.51cto.com/u_6478076/5204120)
+
+[Optimizing a Ring Buffer for Throughput | Erik Rigtorp](https://rigtorp.se/ringbuffer/)
+
+[rigtorp/awesome-lockfree: A collection of resources on wait-free and lock-free programming (github.com)](https://github.com/rigtorp/awesome-lockfree)
 ## 思路
 ![[1.png]]
 如图所示，所有的数据都被存放到绿色的部分，也就是ConcurrentHashMap

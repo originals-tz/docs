@@ -1,3 +1,6 @@
+## GDB
+
+带参数运行 `run 参数`
 ## perf 
 
 [系统级性能分析工具perf的介绍与使用_ITPUB博客](http://blog.itpub.net/24585765/viewspace-2564885/)
@@ -45,7 +48,7 @@ cat /boot/config-`uname -r` | grep CONFIG_DEBUG_INFO_BTF
 
 c++默认自带格式化脚本,位置 : `/usr/share/gcc-*/python/libstdcxx/`
 
-### nc文件传输
+## nc文件传输
 
 发送端 nc -l 12312 > target.tar.gz
 
@@ -53,10 +56,11 @@ c++默认自带格式化脚本,位置 : `/usr/share/gcc-*/python/libstdcxx/`
 
 ## 查看csv
 
+
 ```
 column -s, -t < somefile.csv | less -#2 -N -S
 ```
 
-查看进程
+## 查看进程
 pgrep themesrv | xargs -I % pwdx %
 ps -C themesrv -o cmd,rss

@@ -1,4 +1,3 @@
-bpftrace踩坑
 
 1.包管理安装的bpftrace可能并不是完全体
 

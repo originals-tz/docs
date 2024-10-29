@@ -1,2 +1,0 @@
-- mysql_init泄漏，最后需要调用`mysql_library_end`
-- protobuf在序列化大对象时，也是非常耗时的

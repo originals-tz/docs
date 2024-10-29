@@ -1,4 +1,3 @@
-# SlackBot
 
 官方教程 https://github.com/slackapi/python-slack-sdk
 
